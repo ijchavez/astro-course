@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
 import siteData from "../data/siteData.json"
+import Link from "../components/Link.astro"
 const my_num = 1
 const my_date = new Date()
 const fruits = ['apple', 'banana', 'cherry']
@@ -8,8 +9,9 @@ const obj = { name: 'John', age: 30 }
 const res = await fetch('https://productsapi-n5p2.onrender.com/api/v1/products')
 const data = await res.json()
 ---
-<BaseLayout title="Fruits">
+<BaseLayout title="Home">
 	<div>
 		<h1>hello</h1>
+		<Link href="/about">About</div></Link>
 	</div>
 </BaseLayout>
