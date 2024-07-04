@@ -1,0 +1,45 @@
+---
+import siteData from "../data/siteData.json"
+const my_num = 1
+const my_date = new Date()
+const fruits = ['apple', 'banana', 'cherry']
+const obj = { name: 'John', age: 30 }
+const res = await fetch('https://productsapi-n5p2.onrender.com/api/v1/products')
+const data = await res.json()
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<h1>{my_num}</h1>
+		<h2>{my_date}</h2>
+		<ul>
+			{fruits.map((fruit) => (
+				<li>{fruit}</li>
+			))}
+		</ul>
+		<p>{obj.name} is {obj.age} years old.</p>
+		<div>
+			<h3>{siteData.name}</h3>
+			<p>{siteData.description}</p>
+		</div>
+		<div>
+			<h3>Products</h3>
+			<ul>
+				{data.map((product) => (
+					<li>{product.name}</li>
+					<ul>
+						<li>{product.description}</li>
+						<li>{product.price}</li>
+						<img src={product.image} alt={product.name} />
+					</ul>
+				))}
+			</ul>
+	</body>
+</html>
