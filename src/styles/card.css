@@ -1,0 +1,66 @@
+article {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 400px;
+    margin: 20px;
+    background-color: #fff;
+}
+
+article img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+article .pill {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 12px;
+    margin: 10px;
+}
+
+article h2 {
+    font-size: 1.5em;
+    margin: 10px 20px;
+}
+
+article p {
+    margin: 10px 20px;
+    color: #555;
+}
+
+article .auth {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+article .auth img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+article .auth div {
+    display: flex;
+    flex-direction: column;
+}
+
+article .auth p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #777;
+}
+
+article .auth p strong {
+    color: #333;
+}

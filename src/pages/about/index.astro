@@ -1,12 +1,30 @@
 ---
 import Link from "../../components/Link.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro"
-
+import Card from "../../components/Card.astro"
+import { getUserSample } from "../../utils/utils.js"
+const res = await fetch('https://productsapi-n5p2.onrender.com/api/v1/products')
+const data = await res.json()
+const user = await getUserSample()
 ---
 
 <BaseLayout title="About">
 	<div>
 		<h1>hello</h1>
+		<div style={{display:"ruby-text"}}>
+			{data.map((item, index) => (
+				<Card
+					img={item.image}
+					alt={item.id}
+					pill={item.id}
+					title={item.title}
+					description={item.description}
+					author_img={user.avatar}
+					author_name={user.name}
+					time="2 hours ago"
+				/>
+			))}
+		</div>
 		<Link href="/">Home</div></Link>
 	</div>
 </BaseLayout>

@@ -4,6 +4,7 @@ const { href } = Astro.props
 
 <a href={href} style={{ textDecoration:"none"}} class="home">
     <slot />
+    <p id="copyright"></p>
 </a>
 
 <style is:global>
@@ -14,3 +15,8 @@ const { href } = Astro.props
         padding: 10px;
     }
 </style>
+<script>
+    import { getCopyright } from "../utils/utils.js"
+    const copyright = await getCopyright()
+    document.querySelector("#copyright").textContent = copyright
+</script>
