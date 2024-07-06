@@ -2,6 +2,15 @@
 const { href } = Astro.props
 ---
 
-<a href={href}>
+<a href={href} style={{ textDecoration:"none"}} class="home">
     <slot />
 </a>
+
+<style is:global>
+    a {
+        color: green;
+    }
+    .home {
+        padding: 10px;
+    }
+</style>
