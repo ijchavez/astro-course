@@ -1,30 +1,22 @@
 ---
-import Link from "../../components/Link.astro";
-import BaseLayout from "../../layouts/BaseLayout.astro"
-import Card from "../../components/Card.astro"
-import { getUserSample } from "../../utils/utils.js"
-const res = await fetch('https://productsapi-n5p2.onrender.com/api/v1/products')
-const data = await res.json()
-const user = await getUserSample()
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+import { getUserSample } from '../../utils/utils.js';
+const res = await fetch(
+  'https://productsapi-n5p2.onrender.com/api/v1/products'
+);
+const data = await res.json();
+const user = await getUserSample();
 ---
 
 <BaseLayout title="About">
-	<div>
-		<h1>hello</h1>
-		<div style={{display:"ruby-text"}}>
-			{data.map((item, index) => (
-				<Card
-					img={item.image}
-					alt={item.id}
-					pill={item.id}
-					title={item.title}
-					description={item.description}
-					author_img={user.avatar}
-					author_name={user.name}
-					time="2 hours ago"
-				/>
-			))}
-		</div>
-		<Link href="/">Home</div></Link>
-	</div>
+  <Button id="my_btn" data-testid="my_btnida" isBordered>btn text</Button>
+  <Button id="my_btn_icon" data-testid="my_btnidg" variety="icon">
+    <span>variety</span>
+    <Icon name="button" />
+  </Button>
+  <Button id="my_btn_background" data-testid="my_btnidc" background="#654"
+    >color by variable</Button
+  >
 </BaseLayout>
